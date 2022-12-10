@@ -1,26 +1,26 @@
-import { useEffect, useState, useRef } from "react";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { useEffect, useState } from 'react';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {
   faArrowDown,
   faArrowUp,
   faArrowLeft,
-} from "@fortawesome/free-solid-svg-icons";
-import { format } from "date-fns";
+} from '@fortawesome/free-solid-svg-icons';
+import { format } from 'date-fns';
 
-import { getWeather } from "../../services/weather";
+import { getWeather } from '../../services/weather';
 
-import backgrounds from "../../mocks/backgrounds";
+import backgrounds from '../../mocks/backgrounds';
 
 function City({ ...props }) {
   const [weather, setWeather] = useState<any>({});
 
-  const [styleContainer, setStyleContainer] = useState("default");
+  const [styleContainer, setStyleContainer] = useState('default');
 
   const backgroundColor = (id: string) => {
     const background =
       backgrounds.filter((item) => {
         return item.id === id;
-      })?.[0] || "default";
+      })?.[0] || 'default';
 
     setStyleContainer(background.backgroundName);
   };
@@ -87,11 +87,11 @@ function City({ ...props }) {
             </div>
             <div className="others-grid">
               <p>sunrise</p>
-              <span>{format(weather.sys.sunrise, "HH:MM")} AM</span>
+              <span>{format(weather.sys.sunrise, 'HH:MM')} AM</span>
             </div>
             <div className="others-grid">
               <p>sunset</p>
-              <span>{format(weather.sys.sunset, "HH:MM")} PM</span>
+              <span>{format(weather.sys.sunset, 'HH:MM')} PM</span>
             </div>
             <div className="others-grid">
               <p>humidity</p>

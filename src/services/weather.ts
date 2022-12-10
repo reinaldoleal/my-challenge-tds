@@ -1,4 +1,4 @@
-import axios from "axios";
+import axios from 'axios';
 
 export const getWeather = (cords: any) => {
   return axios.get(import.meta.env.VITE_OPEN_WHEATHER_API, {
@@ -6,8 +6,8 @@ export const getWeather = (cords: any) => {
       lat: cords.lat,
       lon: cords.lon,
       appid: import.meta.env.VITE_OPEN_WHEATHER_KEY,
-      lang: "eng",
-      units: "metric",
+      lang: 'eng',
+      units: 'metric',
     },
   });
 };
@@ -18,8 +18,8 @@ export const getHourly = (cords: any) => {
       lat: cords.lat,
       lon: cords.lon,
       appid: import.meta.env.VITE_OPEN_WHEATHER_KEY,
-      lang: "eng",
-      units: "metric",
+      lang: 'eng',
+      units: 'metric',
     },
   });
 };

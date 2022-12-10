@@ -1,3 +1,4 @@
+/* eslint-disable react/react-in-jsx-scope */
 import { describe, it } from 'vitest';
 import { render, screen } from '@testing-library/react';
 

@@ -1,8 +1,8 @@
-import { useState } from "react";
-import Cords from "../../models/Cords";
-import City from "../../components/city/City";
+import { useState } from 'react';
+import Cords from '../../models/Cords';
+import City from '../../components/city/City';
 
-import cities from "../../mocks/cities";
+import cities from '../../mocks/cities';
 
 function Home() {
   const [city, setCity] = useState<Cords>({
@@ -33,10 +33,10 @@ function Home() {
               </div>
             </div>
             <div className="cities">
-              {cities.map((city) => (
-                <div key={city.id} className="cities-item">
-                  <span onClick={() => selectCity(city.cords)}>
-                    {city.name}
+              {cities.map((item) => (
+                <div key={item.id} className="cities-item">
+                  <span onClick={() => selectCity(item.cords)}>
+                    {item.name}
                   </span>
                 </div>
               ))}

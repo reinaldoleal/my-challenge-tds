@@ -1,7 +1,7 @@
 const cities = [
   {
     id: 1,
-    name: "Dallol",
+    name: 'Dallol',
     cords: {
       lat: 12.30333333,
       lon: 3.54027778,
@@ -9,7 +9,7 @@ const cities = [
   },
   {
     id: 2,
-    name: "Fairbanks",
+    name: 'Fairbanks',
     cords: {
       lat: 64.87111111,
       lon: -147.71638889,
@@ -17,7 +17,7 @@ const cities = [
   },
   {
     id: 3,
-    name: "London",
+    name: 'London',
     cords: {
       lat: 51.50722222,
       lon: -0.1275,
@@ -25,7 +25,7 @@ const cities = [
   },
   {
     id: 4,
-    name: "Recife",
+    name: 'Recife',
     cords: {
       lat: -8.05388889,
       lon: -34.88083333,
@@ -33,7 +33,7 @@ const cities = [
   },
   {
     id: 5,
-    name: "Vancouver",
+    name: 'Vancouver',
     cords: {
       lat: 49.26083333,
       lon: -123.11388889,
@@ -41,7 +41,7 @@ const cities = [
   },
   {
     id: 6,
-    name: "Yakutsk",
+    name: 'Yakutsk',
     cords: {
       lat: 62.03333333,
       lon: 129.73333333,
