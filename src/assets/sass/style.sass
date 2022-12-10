@@ -1,0 +1,149 @@
+@use 'variables'
+@use 'mixins'
+
+*
+    padding: 0
+    margin: 0
+    font-family: variables.$font-family
+
+body
+    background-color: variables.$bg-color
+    color: variables.$text-color
+
+.container
+    @include mixins.container
+
+    @include mixins.mobile
+        padding: 1.1rem
+
+.header
+    @include mixins.flex-center
+
+    text-align: center
+    margin-top: 200px
+
+    .title
+        font-size: 2em
+        padding: 10px
+
+    span
+        font-size: 22px
+        opacity: .7
+
+.globo
+    @include mixins.flex-center
+
+    width: 120px
+    height: 120px
+    margin: auto
+    margin-top: 50px
+
+    img
+        width: 120px
+        height: 120px
+
+.cities
+    @include mixins.flex-center
+
+    justify-content: center
+    align-items: center
+    width: 400px
+    margin: 40px auto
+    flex-wrap: wrap
+
+    &-button
+        padding: 1.5em
+        width: 75px
+
+        button
+            background-color: variables.$bg-color
+            color: variables.$text-color
+            font-size: 1.2em
+
+.container-weather
+    background-color: variables.$snowy-color
+    color: variables.$bg-color
+
+    @include mixins.container
+
+    @include mixins.mobile
+        padding: 1.1rem
+
+.nav
+    height: 10%
+
+    &-icon
+        margin-left: 25px
+        margin-top: 25px
+        font-size: 25px
+
+.weather
+    @include mixins.flex-center
+
+    text-align: center
+    margin-top: 45px
+
+    p
+        font-size: 30px
+        padding: 10px
+
+    span
+        font-size: 20px
+
+.temp
+    display: flex
+    justify-content: center
+    align-items: center
+    margin-top: 30px
+
+    &-now
+        font-size: 100px
+        height: 100px
+
+        &-others
+            width: 58px
+
+            &-ground
+                display: flex
+                justify-content: right
+                align-items: right
+                margin-top: 0px
+                font-weight: bold
+                font-size: 25px
+
+            &-max
+                display: flex
+                justify-content: left
+                align-items: left
+                margin-top: 20px
+                padding-bottom: 5px
+
+                p
+                    padding-left: 5px
+
+            &-min
+                display: flex
+                justify-content: left
+                align-items: left
+
+                p
+                    padding-left: 5px
+
+.temp-img
+    @include mixins.flex-center
+
+    padding: 30px
+
+.others
+    @include mixins.flex-center
+
+    &-grid
+        width: 120px
+        text-align: center
+
+        p
+            padding: 8px
+            opacity: .5
+
+        span
+            font-size: 13px
