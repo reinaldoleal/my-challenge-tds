@@ -9,33 +9,31 @@ import { format } from "date-fns";
 
 import { getWeather } from "../../services/weather";
 
-import backgrounds from '../../mocks/backgrounds'
+import backgrounds from "../../mocks/backgrounds";
 
-function City({...props}) {
+function City({ ...props }) {
   const [weather, setWeather] = useState<any>({});
 
-  const [styleContainer, setStyleContainer] = useState('container-weather default');
-  
+  const [styleContainer, setStyleContainer] = useState("default");
+
   const backgroundColor = (id: string) => {
-    console.log('id', id, backgrounds);
+    const background =
+      backgrounds.filter((item) => {
+        return item.id === id;
+      })?.[0] || "default";
 
-    const background = backgrounds.filter(item => {
-      return item.id === id;
-    })?.[0]
-
-    setStyleContainer(`container-weather ${background.backgroundName}`);
-  }
+    setStyleContainer(background.backgroundName);
+  };
 
   useEffect(() => {
     getWeather(props.cords).then((resp) => {
       setWeather(resp.data);
       backgroundColor(resp.data.weather[0].icon);
-      console.log(resp.data);
     });
   }, []);
 
   return (
-    <div className={styleContainer}>
+    <div className={`container-weather ${styleContainer}`}>
       <div className="nav">
         <FontAwesomeIcon
           icon={faArrowLeft}
@@ -60,16 +58,20 @@ function City({...props}) {
                 <p>&deg;C</p>
               </div>
               <div className="temp-now-others-max">
-                <div>
+                <div className="item">
                   <FontAwesomeIcon icon={faArrowUp} />
                 </div>
-                <p>{Math.trunc(weather.main?.temp_max)}&deg;</p>
+                <div className="item">
+                  <p>{Math.trunc(weather.main?.temp_max)}&deg;</p>
+                </div>
               </div>
               <div className="temp-now-others-min">
-                <div>
+                <div className="item">
                   <FontAwesomeIcon icon={faArrowDown} />
                 </div>
-                <p>{Math.trunc(weather.main?.temp_min)}&deg;</p>
+                <div className="item">
+                  <p>{Math.trunc(weather.main?.temp_min)}&deg;</p>
+                </div>
               </div>
             </div>
           </div>

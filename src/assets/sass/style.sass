@@ -6,71 +6,87 @@
     margin: 0
     font-family: variables.$font-family
 
-body
-    background-color: variables.$bg-color
-    color: variables.$text-color-white
-
 .container
+    @include mixins.flex-center
     @include mixins.container
 
-    border: 1px solid red
-
     @include mixins.mobile
         padding: 1.1rem
+
+.center
+    margin-top: 170px
+    width: 400px
+    height: 425px
+    
+    @include mixins.mobile
+        margin-top: 50px
+        width: 100vw
+        height: 100vh
 
 .header
-    @include mixins.flex-center
-
-    border: 1px solid yellow
+    width: 400px
+    height: 70px
 
     text-align: center
-    margin-top: 200px
 
     @include mixins.mobile
-        padding: 1.1rem
+        width: 100vw
+        height: 100px
 
     .title
         font-size: 2em
-        padding: 10px
+        // padding: 5px
 
     span
         font-size: 22px
         opacity: .7
 
 .globo
-    @include mixins.flex-center
+    width: 400px
+    height: 170px
+    padding: 5px
 
-    border: 1px solid green
-
-    width: 120px
-    height: 120px
-    margin: auto
-    margin-top: 50px
-
-    img
-        width: 120px
-        height: 120px
-
-.cities
-    @include mixins.flex-center
-
-    border: 1px solid blue
-
+    display: flex
     justify-content: center
     align-items: center
+
+    @include mixins.mobile
+        width: 100vw
+        height: 100px
+
+    &-img
+        img
+            width: 115px
+            height: 115px
+
+            @include mixins.mobile
+                width: 100px
+                height: 100px
+
+.cities
     width: 400px
-    margin: 40px auto
+    height: 150px
+    
+    display: flex
+    justify-content: space-around
+    align-items: center
     flex-wrap: wrap
 
-    &-button
-        padding: 1.5em
-        width: 75px
+    @include mixins.mobile
+        width: 100vw
+        height: 100px
+    
+    &-item
+        padding: 1.2em
 
         span
             background-color: variables.$bg-color
             color: variables.$text-color-white
             font-size: 1.2em
             opacity: .9
+
+            @include mixins.mobile
+                font-size: 1em
 
 .container-weather
     color: variables.$bg-color
@@ -140,21 +156,13 @@ body
 
             &-max
                 display: flex
-                justify-content: left
-                align-items: left
+                justify-content: space-between
                 margin-top: 20px
                 padding-bottom: 5px
 
-                p
-                    padding-left: 5px
-
             &-min
                 display: flex
-                justify-content: left
-                align-items: left
-
-                p
-                    padding-left: 5px
+                justify-content: space-between
 
 .temp-img
     @include mixins.flex-center

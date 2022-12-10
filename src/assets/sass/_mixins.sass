@@ -1,16 +1,19 @@
 @use 'variables'
 
 @mixin container
+    background-color: variables.$bg-color
+    color: variables.$text-color-white
+    max-width: variables.$container-width
     height: variables.$container-height
-    width: variables.$container-width
+    border: 1px solid red
 
 @mixin flex-center
     display: flex
     justify-content: center
-    align-items: center
+    flex-wrap: wrap
 
 @mixin mobile()
-    @media(max-width: 320px)
+    @media(max-width: 430px)
         @content
         
         font-size: 15px
