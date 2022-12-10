@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faArrowDown,
@@ -9,19 +9,33 @@ import { format } from "date-fns";
 
 import { getWeather } from "../../services/weather";
 
-function City(props: any) {
+import backgrounds from '../../mocks/backgrounds'
+
+function City({...props}) {
   const [weather, setWeather] = useState<any>({});
 
+  const [styleContainer, setStyleContainer] = useState('container-weather default');
+  
+  const backgroundColor = (id: string) => {
+    console.log('id', id, backgrounds);
+
+    const background = backgrounds.filter(item => {
+      return item.id === id;
+    })?.[0]
+
+    setStyleContainer(`container-weather ${background.backgroundName}`);
+  }
+
   useEffect(() => {
-    console.log(props);
-    getWeather(props.props).then((resp) => {
+    getWeather(props.cords).then((resp) => {
       setWeather(resp.data);
+      backgroundColor(resp.data.weather[0].icon);
       console.log(resp.data);
     });
   }, []);
 
   return (
-    <div className="container-weather">
+    <div className={styleContainer}>
       <div className="nav">
         <FontAwesomeIcon
           icon={faArrowLeft}
@@ -39,7 +53,7 @@ function City(props: any) {
           </div>
           <div className="temp">
             <div className="temp-now">
-              <p>{weather.main?.temp}</p>
+              <p>{Math.trunc(weather.main?.temp)}</p>
             </div>
             <div className="temp-now-others">
               <div className="temp-now-others-ground">
@@ -49,19 +63,19 @@ function City(props: any) {
                 <div>
                   <FontAwesomeIcon icon={faArrowUp} />
                 </div>
-                <p>{weather.main?.temp_max}&deg;</p>
+                <p>{Math.trunc(weather.main?.temp_max)}&deg;</p>
               </div>
               <div className="temp-now-others-min">
                 <div>
                   <FontAwesomeIcon icon={faArrowDown} />
                 </div>
-                <p>{weather.main?.temp_min}&deg;</p>
+                <p>{Math.trunc(weather.main?.temp_min)}&deg;</p>
               </div>
             </div>
           </div>
           <div className="temp-img">
             <img
-              src={`http://openweathermap.org/img/w/${weather.weather[0].icon}.png`}
+              src={`http://openweathermap.org/img/wn/${weather.weather[0].icon}@2x.png`}
             />
           </div>
           <div className="others">

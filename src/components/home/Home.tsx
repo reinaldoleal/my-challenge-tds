@@ -1,24 +1,26 @@
-import { useRef, useState } from "react";
+import { useState } from "react";
 import Cords from "../../models/Cords";
 import City from "../city/City";
 
 import cities from '../../mocks/cities'
 
 function Home() {
-  const [city, setCity] = useState<any>(null);
+  const [city, setCity] = useState<Cords>({
+    lat: 0,
+    lon: 0
+  });
 
   const selectCity = (props: Cords) => {
-    console.log(props);
     setCity(props);
   };
 
   const clearCity = () => {
-    setCity(null);
+    setCity({lat: 0, lon: 0});
   };
 
   return (
     <>
-      {!city && (
+      {city.lat === 0 && (
         <div className="container">
           <div className="header">
             <div>
@@ -28,21 +30,21 @@ function Home() {
           </div>
           <div className="globo">
             <div>
-              <img src="./src/assets/img/globo.png" alt="globo" />
+              <img src="./src/assets/img/earth.png" alt="globo" />
             </div>
           </div>
           <div className="cities">
             {cities.map((city) => (
               <div key={city.id} className="cities-button">
-                <button onClick={() => selectCity(city.cords)}>
+                <span onClick={() => selectCity(city.cords)}>
                   {city.name}
-                </button>
+                </span>
               </div>
             ))}
           </div>
         </div>
       )}
-      {city && <City props={city} clearCity={clearCity} />}
+      {city.lat !== 0 && <City cords={city} clearCity={clearCity} />}
     </>
   );
 }

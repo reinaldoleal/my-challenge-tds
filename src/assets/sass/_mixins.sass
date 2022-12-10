@@ -2,25 +2,20 @@
 
 @mixin container
     height: variables.$container-height
+    width: variables.$container-width
 
 @mixin flex-center
     display: flex
     justify-content: center
     align-items: center
 
-@mixin bg-img($img)
-    background-image: url('../img/#{$img}')
-    background-size: 100%
-    background-position: center
-    background-repeat: no-repeat
-    filter: grayscale(100%)
-    transition: .6s
-
-    &:hover
-        background-size: 110%
-        filter: grayscale(0%)
-        background-image: linear-gradient(rgb(0, 0, 0, .5), rgb(0, 0, 0, .5)), url('../img/#{$img}')
-
 @mixin mobile()
-    @media(max-width: 350px) 
-        @content    
+    @media(max-width: 320px)
+        @content
+        
+        font-size: 15px
+
+@mixin gradient($color...)
+    background: nth(nth($color, 1), 1)
+    background: -webkit-linear-gradient($color)
+    background: linear-gradient($color)

@@ -8,10 +8,12 @@
 
 body
     background-color: variables.$bg-color
-    color: variables.$text-color
+    color: variables.$text-color-white
 
 .container
     @include mixins.container
+
+    border: 1px solid red
 
     @include mixins.mobile
         padding: 1.1rem
@@ -19,8 +21,13 @@ body
 .header
     @include mixins.flex-center
 
+    border: 1px solid yellow
+
     text-align: center
     margin-top: 200px
+
+    @include mixins.mobile
+        padding: 1.1rem
 
     .title
         font-size: 2em
@@ -32,6 +39,8 @@ body
 
 .globo
     @include mixins.flex-center
+
+    border: 1px solid green
 
     width: 120px
     height: 120px
@@ -45,6 +54,8 @@ body
 .cities
     @include mixins.flex-center
 
+    border: 1px solid blue
+
     justify-content: center
     align-items: center
     width: 400px
@@ -55,19 +66,35 @@ body
         padding: 1.5em
         width: 75px
 
-        button
+        span
             background-color: variables.$bg-color
-            color: variables.$text-color
+            color: variables.$text-color-white
             font-size: 1.2em
+            opacity: .9
 
 .container-weather
-    background-color: variables.$snowy-color
     color: variables.$bg-color
 
     @include mixins.container
 
     @include mixins.mobile
         padding: 1.1rem
+
+.default
+    background: variables.$bg-color
+    color: variables.$text-color-white
+
+.snowy
+    background: variables.$snowy-color
+    color: variables.$text-color-black
+
+.sunny
+    background: variables.$sunny-color
+    color: variables.$text-color-white
+
+.rainy
+    background: variables.$rainy-color
+    color: variables.$text-color-white
 
 .nav
     height: 10%
@@ -97,7 +124,7 @@ body
     margin-top: 30px
 
     &-now
-        font-size: 100px
+        font-size: 105px
         height: 100px
 
         &-others
@@ -142,7 +169,8 @@ body
         text-align: center
 
         p
-            padding: 8px
+            font-size: 14px
+            padding: 7px
             opacity: .5
 
         span
