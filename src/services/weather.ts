@@ -20,7 +20,7 @@ export const getHourly = (cords: Cords) => {
       lon: cords.lon,
       appid: import.meta.env.VITE_OPEN_WHEATHER_KEY,
       lang: 'eng',
-      units: 'metric',
+      cnt: 4,
     },
   });
 };

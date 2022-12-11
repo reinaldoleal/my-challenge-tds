@@ -1,3 +1,4 @@
+@use 'fonts'
 @use 'variables'
 @use 'mixins'
 
@@ -34,11 +35,10 @@
         height: 100px
 
     .title
-        font-size: 2em
-        // padding: 5px
+        font-size: 2.3em
 
     span
-        font-size: 22px
+        font-size: 25px
         opacity: .7
 
 .globo
@@ -82,8 +82,7 @@
         span
             background-color: variables.$bg-color
             color: variables.$text-color-white
-            font-size: 1.2em
-            opacity: .9
+            font-size: 1.4em
 
             @include mixins.mobile
                 font-size: 1em
@@ -124,24 +123,25 @@
     @include mixins.flex-center
 
     text-align: center
-    margin-top: 45px
+    margin-top: 15px
 
     p
-        font-size: 30px
-        padding: 10px
+        font-size: 35px
+        padding: 5px
 
     span
-        font-size: 20px
+        font-size: 25px
+        opacity: .8
 
 .temp
     display: flex
     justify-content: center
     align-items: center
-    margin-top: 30px
+    margin-top: 25px
+    height: 80px
 
     &-now
-        font-size: 105px
-        height: 100px
+        font-size: 110px
 
         &-others
             width: 58px
@@ -150,14 +150,13 @@
                 display: flex
                 justify-content: right
                 align-items: right
-                margin-top: 0px
                 font-weight: bold
                 font-size: 25px
 
             &-max
                 display: flex
                 justify-content: space-between
-                margin-top: 20px
+                margin-top: 12px
                 padding-bottom: 5px
 
             &-min
@@ -167,19 +166,47 @@
 .temp-img
     @include mixins.flex-center
 
-    padding: 30px
+    padding-top: 10px
+
+    img
+        height: 120px
+
+.forcast 
+    @include mixins.flex-center
+
+    padding-top: 35px
+    padding-bottom: 60px
+
+    &-time
+        text-align: center
+        height: 50px
+        width: 90px
+ 
+        span
+            font-size: 1em
+
+        p
+            font-size: 1.2em
 
 .others
     @include mixins.flex-center
 
+    padding: 20px
+
     &-grid
-        width: 120px
+        height: 50px
+        width: 95px
         text-align: center
 
         p
-            font-size: 14px
-            padding: 7px
+            font-size: 15px
             opacity: .5
+            padding: 10px
 
         span
             font-size: 13px
+    
+    hr
+        margin-top: 20px 
+        height: 22px
+        opacity: .5

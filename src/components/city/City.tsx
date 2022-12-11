@@ -7,7 +7,7 @@ import {
 } from '@fortawesome/free-solid-svg-icons';
 import { format } from 'date-fns';
 
-import { getWeather } from '../../services/weather';
+import { getHourly, getWeather } from '../../services/weather';
 
 import backgrounds from '../../mocks/backgrounds';
 import Cords from '../../models/Cords';
@@ -54,6 +54,9 @@ function City({ ...props }: PropsCity) {
       setWeather(resp.data);
       backgroundColor(resp.data.weather[0].icon);
     });
+    // getHourly(props.cords).then((resp) => {
+    //   console.log(resp);
+    // });
   }, [props.cords]);
 
   return (
@@ -75,7 +78,7 @@ function City({ ...props }: PropsCity) {
           </div>
           <div className="temp">
             <div className="temp-now">
-              <p>{Math.trunc(weather.main?.temp || 0)}</p>
+              <span>{Math.trunc(weather.main?.temp || 0)}</span>
             </div>
             <div className="temp-now-others">
               <div className="temp-now-others-ground">
@@ -105,19 +108,80 @@ function City({ ...props }: PropsCity) {
               alt="Weather"
             />
           </div>
+          <div className="forcast">
+            <div className="forcast-time">
+              <div>
+                <span>dawn</span>
+              </div>
+              <div>
+                <img
+                  src={`http://openweathermap.org/img/wn/${weather?.weather?.[0].icon}.png`}
+                  alt="Weather"
+                />
+              </div>
+              <div>
+                <p>13&deg;</p>
+              </div>
+            </div>
+            <div className="forcast-time">
+              <div>
+                <span>morning</span>
+              </div>
+              <div>
+                <img
+                  src={`http://openweathermap.org/img/wn/${weather?.weather?.[0].icon}.png`}
+                  alt="Weather"
+                />
+              </div>
+              <div>
+                <p>15&deg;</p>
+              </div>
+            </div>
+            <div className="forcast-time">
+              <div>
+                <span>afternoon</span>
+              </div>
+              <div>
+                <img
+                  src={`http://openweathermap.org/img/wn/${weather?.weather?.[0].icon}.png`}
+                  alt="Weather"
+                />
+              </div>
+              <div>
+                <p>15&deg;</p>
+              </div>
+            </div>
+            <div className="forcast-time">
+              <div>
+                <span>night</span>
+              </div>
+              <div>
+                <img
+                  src={`http://openweathermap.org/img/wn/${weather?.weather?.[0].icon}.png`}
+                  alt="Weather"
+                />
+              </div>
+              <div>
+                <p>15&deg;</p>
+              </div>
+            </div>
+          </div>
           <div className="others">
             <div className="others-grid">
               <p>wind speed</p>
               <span>{weather?.wind?.speed}m/s</span>
             </div>
+            <hr />
             <div className="others-grid">
               <p>sunrise</p>
               <span>{format(weather?.sys?.sunrise || 0, 'HH:MM')} AM</span>
             </div>
+            <hr />
             <div className="others-grid">
               <p>sunset</p>
               <span>{format(weather?.sys?.sunset || 0, 'HH:MM')} PM</span>
             </div>
+            <hr />
             <div className="others-grid">
               <p>humidity</p>
               <span>{weather?.main?.humidity}%</span>
