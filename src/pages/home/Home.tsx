@@ -1,3 +1,5 @@
+/* eslint-disable jsx-a11y/no-static-element-interactions */
+
 import { useState } from 'react';
 import Cords from '../../models/Cords';
 import City from '../../components/city/City';
@@ -35,7 +37,10 @@ function Home() {
             <div className="cities">
               {cities.map((item) => (
                 <div key={item.id} className="cities-item">
-                  <span onClick={() => selectCity(item.cords)}>
+                  <span
+                    onClick={() => selectCity(item.cords)}
+                    onKeyUp={() => selectCity(item.cords)}
+                  >
                     {item.name}
                   </span>
                 </div>

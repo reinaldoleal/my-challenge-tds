@@ -10,9 +10,33 @@ import { format } from 'date-fns';
 import { getWeather } from '../../services/weather';
 
 import backgrounds from '../../mocks/backgrounds';
+import Cords from '../../models/Cords';
+import OpenWeartherMap from '../../models/OpenWeartherMap';
 
-function City({ ...props }) {
-  const [weather, setWeather] = useState<any>({});
+type PropsCity = {
+  cords: Cords;
+  clearCity: any;
+};
+
+function City({ ...props }: PropsCity) {
+  const [weather, setWeather] = useState<OpenWeartherMap>({
+    id: 0,
+    name: '',
+    weather: [{}],
+    main: {
+      temp: 0,
+      temp_max: 0,
+      temp_min: 0,
+      humidity: 0,
+    },
+    sys: {
+      sunrise: 0,
+      sunset: 0,
+    },
+    wind: {
+      speed: 0,
+    },
+  });
 
   const [styleContainer, setStyleContainer] = useState('default');
 
@@ -30,7 +54,7 @@ function City({ ...props }) {
       setWeather(resp.data);
       backgroundColor(resp.data.weather[0].icon);
     });
-  }, []);
+  }, [props.cords]);
 
   return (
     <div className={`container-weather ${styleContainer}`}>
@@ -51,7 +75,7 @@ function City({ ...props }) {
           </div>
           <div className="temp">
             <div className="temp-now">
-              <p>{Math.trunc(weather.main?.temp)}</p>
+              <p>{Math.trunc(weather.main?.temp || 0)}</p>
             </div>
             <div className="temp-now-others">
               <div className="temp-now-others-ground">
@@ -62,7 +86,7 @@ function City({ ...props }) {
                   <FontAwesomeIcon icon={faArrowUp} />
                 </div>
                 <div className="item">
-                  <p>{Math.trunc(weather.main?.temp_max)}&deg;</p>
+                  <p>{Math.trunc(weather.main?.temp_max || 0)}&deg;</p>
                 </div>
               </div>
               <div className="temp-now-others-min">
@@ -70,32 +94,33 @@ function City({ ...props }) {
                   <FontAwesomeIcon icon={faArrowDown} />
                 </div>
                 <div className="item">
-                  <p>{Math.trunc(weather.main?.temp_min)}&deg;</p>
+                  <p>{Math.trunc(weather.main?.temp_min || 0)}&deg;</p>
                 </div>
               </div>
             </div>
           </div>
           <div className="temp-img">
             <img
-              src={`http://openweathermap.org/img/wn/${weather.weather[0].icon}@2x.png`}
+              src={`http://openweathermap.org/img/wn/${weather?.weather?.[0].icon}@2x.png`}
+              alt="Weather"
             />
           </div>
           <div className="others">
             <div className="others-grid">
               <p>wind speed</p>
-              <span>{weather.wind.speed}m/s</span>
+              <span>{weather?.wind?.speed}m/s</span>
             </div>
             <div className="others-grid">
               <p>sunrise</p>
-              <span>{format(weather.sys.sunrise, 'HH:MM')} AM</span>
+              <span>{format(weather?.sys?.sunrise || 0, 'HH:MM')} AM</span>
             </div>
             <div className="others-grid">
               <p>sunset</p>
-              <span>{format(weather.sys.sunset, 'HH:MM')} PM</span>
+              <span>{format(weather?.sys?.sunset || 0, 'HH:MM')} PM</span>
             </div>
             <div className="others-grid">
               <p>humidity</p>
-              <span>{weather.main.humidity}%</span>
+              <span>{weather?.main?.humidity}%</span>
             </div>
           </div>
         </div>

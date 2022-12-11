@@ -51,6 +51,10 @@ const backgrounds = [
     id: '13n',
     backgroundName: 'snowy',
   },
+  {
+    id: '50d',
+    backgroundName: 'snowy',
+  },
 ];
 
 export default backgrounds;

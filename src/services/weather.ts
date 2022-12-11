@@ -1,6 +1,7 @@
 import axios from 'axios';
+import Cords from '../models/Cords';
 
-export const getWeather = (cords: any) => {
+export const getWeather = (cords: Cords) => {
   return axios.get(import.meta.env.VITE_OPEN_WHEATHER_API, {
     params: {
       lat: cords.lat,
@@ -12,7 +13,7 @@ export const getWeather = (cords: any) => {
   });
 };
 
-export const getHourly = (cords: any) => {
+export const getHourly = (cords: Cords) => {
   return axios.get(import.meta.env.VITE_OPEN_WHEATHER_HOURLY_API, {
     params: {
       lat: cords.lat,
