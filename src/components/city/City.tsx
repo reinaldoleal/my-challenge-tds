@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import { useEffect, useState } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {
@@ -7,7 +8,7 @@ import {
 } from '@fortawesome/free-solid-svg-icons';
 import { format } from 'date-fns';
 
-import { getHourly, getWeather } from '../../services/weather';
+import openWeartherMapApi from '../../services/OpeWeatherMapApi';
 
 import backgrounds from '../../mocks/backgrounds';
 import Cords from '../../models/Cords';
@@ -41,23 +42,19 @@ function City({ ...props }: PropsCity) {
   const [styleContainer, setStyleContainer] = useState('default');
 
   const backgroundColor = (id: string) => {
-    const background =
-      backgrounds.filter((item) => {
-        return item.id === id;
-      })?.[0] || 'default';
+    const background = backgrounds?.filter((item) => {
+      return item.id === id;
+    })?.[0] || { backgroundName: 'default' };
 
     setStyleContainer(background.backgroundName);
   };
 
   useEffect(() => {
-    getWeather(props.cords).then((resp) => {
+    openWeartherMapApi.getWeather(props.cords).then((resp) => {
       setWeather(resp.data);
       backgroundColor(resp.data.weather[0].icon);
     });
-    // getHourly(props.cords).then((resp) => {
-    //   console.log(resp);
-    // });
-  }, [props.cords]);
+  }, []);
 
   return (
     <div className={`container-weather ${styleContainer}`}>
@@ -85,18 +82,18 @@ function City({ ...props }: PropsCity) {
                 <p>&deg;C</p>
               </div>
               <div className="temp-now-others-max">
-                <div className="item">
+                <div className="temp-now-others-icon">
                   <FontAwesomeIcon icon={faArrowUp} />
                 </div>
-                <div className="item">
+                <div className="temp-now-others-font">
                   <p>{Math.trunc(weather.main?.temp_max || 0)}&deg;</p>
                 </div>
               </div>
               <div className="temp-now-others-min">
-                <div className="item">
+                <div className="temp-now-others-icon">
                   <FontAwesomeIcon icon={faArrowDown} />
                 </div>
-                <div className="item">
+                <div className="temp-now-others-font">
                   <p>{Math.trunc(weather.main?.temp_min || 0)}&deg;</p>
                 </div>
               </div>
@@ -104,7 +101,7 @@ function City({ ...props }: PropsCity) {
           </div>
           <div className="temp-img">
             <img
-              src={`http://openweathermap.org/img/wn/${weather?.weather?.[0].icon}@2x.png`}
+              src={`http://openweathermap.org/img/wn/${weather.weather?.[0].icon}@2x.png`}
               alt="Weather"
             />
           </div>
@@ -115,12 +112,12 @@ function City({ ...props }: PropsCity) {
               </div>
               <div>
                 <img
-                  src={`http://openweathermap.org/img/wn/${weather?.weather?.[0].icon}.png`}
+                  src={`http://openweathermap.org/img/wn/${weather.weather?.[0].icon}.png`}
                   alt="Weather"
                 />
               </div>
               <div>
-                <p>13&deg;</p>
+                <p>13&deg; C</p>
               </div>
             </div>
             <div className="forcast-time">
@@ -129,12 +126,12 @@ function City({ ...props }: PropsCity) {
               </div>
               <div>
                 <img
-                  src={`http://openweathermap.org/img/wn/${weather?.weather?.[0].icon}.png`}
+                  src={`http://openweathermap.org/img/wn/${weather.weather?.[0].icon}.png`}
                   alt="Weather"
                 />
               </div>
               <div>
-                <p>15&deg;</p>
+                <p>15&deg; C</p>
               </div>
             </div>
             <div className="forcast-time">
@@ -143,12 +140,12 @@ function City({ ...props }: PropsCity) {
               </div>
               <div>
                 <img
-                  src={`http://openweathermap.org/img/wn/${weather?.weather?.[0].icon}.png`}
+                  src={`http://openweathermap.org/img/wn/${weather.weather?.[0].icon}.png`}
                   alt="Weather"
                 />
               </div>
               <div>
-                <p>15&deg;</p>
+                <p>15&deg; C</p>
               </div>
             </div>
             <div className="forcast-time">
@@ -157,12 +154,12 @@ function City({ ...props }: PropsCity) {
               </div>
               <div>
                 <img
-                  src={`http://openweathermap.org/img/wn/${weather?.weather?.[0].icon}.png`}
+                  src={`http://openweathermap.org/img/wn/${weather.weather?.[0].icon}.png`}
                   alt="Weather"
                 />
               </div>
               <div>
-                <p>15&deg;</p>
+                <p>15&deg; C</p>
               </div>
             </div>
           </div>
@@ -171,17 +168,17 @@ function City({ ...props }: PropsCity) {
               <p>wind speed</p>
               <span>{weather?.wind?.speed}m/s</span>
             </div>
-            <hr />
+            <hr className={styleContainer} />
             <div className="others-grid">
               <p>sunrise</p>
               <span>{format(weather?.sys?.sunrise || 0, 'HH:MM')} AM</span>
             </div>
-            <hr />
+            <hr className={styleContainer} />
             <div className="others-grid">
               <p>sunset</p>
               <span>{format(weather?.sys?.sunset || 0, 'HH:MM')} PM</span>
             </div>
-            <hr />
+            <hr className={styleContainer} />
             <div className="others-grid">
               <p>humidity</p>
               <span>{weather?.main?.humidity}%</span>

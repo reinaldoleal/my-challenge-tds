@@ -18,7 +18,7 @@
     margin-top: 170px
     width: 400px
     height: 425px
-    
+
     @include mixins.mobile
         margin-top: 50px
         width: 100vw
@@ -38,7 +38,7 @@
         font-size: 2.3em
 
     span
-        font-size: 25px
+        font-size: 1.7em
         opacity: .7
 
 .globo
@@ -66,7 +66,7 @@
 .cities
     width: 400px
     height: 150px
-    
+
     display: flex
     justify-content: space-around
     align-items: center
@@ -75,7 +75,7 @@
     @include mixins.mobile
         width: 100vw
         height: 100px
-    
+
     &-item
         padding: 1.2em
 
@@ -98,18 +98,22 @@
 .default
     background: variables.$bg-color
     color: variables.$text-color-white
+    border-color: variables.$text-color-white
 
 .snowy
     background: variables.$snowy-color
     color: variables.$text-color-black
+    border-color: variables.$text-color-black
 
 .sunny
     background: variables.$sunny-color
     color: variables.$text-color-white
+    border-color: variables.$text-color-white
 
 .rainy
     background: variables.$rainy-color
     color: variables.$text-color-white
+    border-color: variables.$text-color-white
 
 .nav
     height: 10%
@@ -117,20 +121,21 @@
     &-icon
         margin-left: 25px
         margin-top: 25px
-        font-size: 25px
+        font-size: 1.6em
 
 .weather
     @include mixins.flex-center
 
     text-align: center
-    margin-top: 15px
+    margin-top: 2em
 
     p
-        font-size: 35px
+        font-size: 2.1em
+        font-weight: 500
         padding: 5px
 
     span
-        font-size: 25px
+        font-size: 1.5em
         opacity: .8
 
 .temp
@@ -141,17 +146,24 @@
     height: 80px
 
     &-now
-        font-size: 110px
+        font-size: 7em
 
         &-others
             width: 58px
+
+            &-icon
+                font-size: .9em
+                padding-left: .7em
+
+            &-font
+                font-size: 1em
 
             &-ground
                 display: flex
                 justify-content: right
                 align-items: right
                 font-weight: bold
-                font-size: 25px
+                font-size: 1.7em
 
             &-max
                 display: flex
@@ -171,7 +183,7 @@
     img
         height: 120px
 
-.forcast 
+.forcast
     @include mixins.flex-center
 
     padding-top: 35px
@@ -181,12 +193,12 @@
         text-align: center
         height: 50px
         width: 90px
- 
+
         span
             font-size: 1em
 
         p
-            font-size: 1.2em
+            font-size: 1.1em
 
 .others
     @include mixins.flex-center
@@ -195,18 +207,18 @@
 
     &-grid
         height: 50px
-        width: 95px
+        width: 6.4em
         text-align: center
 
         p
-            font-size: 15px
+            font-size: 1em
             opacity: .5
             padding: 10px
 
         span
-            font-size: 13px
-    
+            font-size: .9emem
+
     hr
-        margin-top: 20px 
-        height: 22px
-        opacity: .5
+        margin-top: 1.4em
+        height: 1.5em
+        opacity: .3
