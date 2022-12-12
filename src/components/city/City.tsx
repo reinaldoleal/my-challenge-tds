@@ -1,3 +1,4 @@
+/* eslint-disable jsx-a11y/no-static-element-interactions */
 /* eslint-disable react-hooks/exhaustive-deps */
 import { useEffect, useState } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -58,12 +59,8 @@ function City({ ...props }: PropsCity) {
 
   return (
     <div className={`container-weather ${styleContainer}`}>
-      <div className="nav">
-        <FontAwesomeIcon
-          icon={faArrowLeft}
-          onClick={props.clearCity}
-          className="nav-icon"
-        />
+      <div className="nav" onClick={props.clearCity} onKeyUp={props.clearCity}>
+        <FontAwesomeIcon icon={faArrowLeft} className="nav-icon" />
       </div>
       <div className="container-weather-center">
         {weather.name && (
