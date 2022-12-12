@@ -7,10 +7,10 @@ import axios from 'axios';
 
 import '@testing-library/jest-dom';
 
-import City from './City';
-import openWeatherMapApi from '../../services/OpeWeatherMapApi';
+import City from '../components/city/City';
+import openWeatherMapApi from '../services/OpeWeatherMapApi';
 
-import Cords from '../../models/Cords';
+import Cords from '../models/Cords';
 
 vitest.mock('axios');
 
