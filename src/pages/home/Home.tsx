@@ -1,5 +1,6 @@
 /* eslint-disable jsx-a11y/no-static-element-interactions */
 import cities from '../../mocks/cities';
+import globeImg from '../../assets/images/globe.png';
 
 type PropsHome = {
   selectCity: any;
@@ -15,7 +16,7 @@ function Home({ ...props }: PropsHome) {
         </div>
         <div className="globe">
           <div className="globe-img">
-            <img src="src/assets/images/globe.png" alt="Globe" />
+            <img src={globeImg} alt="Globe" />
           </div>
         </div>
         <div className="cities">
