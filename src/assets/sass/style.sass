@@ -200,8 +200,14 @@
             opacity: .5
             padding: 10px
 
+            @include mixins.mobile
+                font-size: .7em
+
         span
-            font-size: .9emem
+            font-size: .9em
+
+            @include mixins.mobile
+                font-size: .6em
 
     hr
         margin-top: 1.4em
