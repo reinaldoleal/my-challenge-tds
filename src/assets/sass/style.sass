@@ -109,7 +109,7 @@
         margin: auto
 
         @include mixins.mobile
-            width: 420px
+            width: 410px
 
 .nav
     height: 10%
@@ -204,27 +204,21 @@
 
     padding-top: 2em
 
-    // @include mixins.mobile
-    //     padding: 5px
-    
     &-grid
-        height: 50px
+        height: 70px
         width: 6.3em
         text-align: center
+
+        @include mixins.mobile
+            width: 6em
 
         p
             font-size: 1em
             opacity: .5
             padding: 10px
 
-            // @include mixins.mobile
-            //     font-size: .7em
-
         span
             font-size: .9em
-
-            // @include mixins.mobile
-            //     font-size: .6em
 
     hr
         margin-top: 1.4em
