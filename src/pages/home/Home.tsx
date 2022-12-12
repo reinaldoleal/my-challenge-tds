@@ -15,7 +15,7 @@ function Home({ ...props }: PropsHome) {
         </div>
         <div className="globe">
           <div className="globe-img">
-            <img src="./src/assets/images/globe.png" alt="Globe" />
+            <img src="src/assets/images/globe.png" alt="Globe" />
           </div>
         </div>
         <div className="cities">
