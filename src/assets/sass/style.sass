@@ -97,6 +97,15 @@
 
     @include mixins.mobile
         padding: 1.1rem
+        
+    &-center
+        display: flex
+        justify-content: center
+        align-items: center
+
+        margin: auto
+        width: 450px
+
 .nav
     height: 10%
 
@@ -106,8 +115,6 @@
         font-size: 1.6em
 
 .weather
-    @include mixins.flex-center
-
     text-align: center
     margin-top: 2em
 
@@ -159,7 +166,7 @@
 
 .temp-img
     @include mixins.flex-center
-
+    
     padding-top: 10px
 
     img
