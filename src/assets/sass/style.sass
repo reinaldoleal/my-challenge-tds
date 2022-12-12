@@ -15,9 +15,9 @@
         padding: 1.1rem
 
 .center
-    margin-top: 170px
-    width: 400px
+    width: 360px
     height: 425px
+    margin-top: 170px
 
     @include mixins.mobile
         margin-top: 50px
@@ -25,7 +25,7 @@
         height: 100vh
 
 .header
-    width: 400px
+    width: 360px
     height: 70px
 
     text-align: center
@@ -42,7 +42,7 @@
         opacity: .7
 
 .globe
-    width: 400px
+    width: 350px
     height: 170px
     padding: 5px
 
@@ -64,7 +64,7 @@
                 height: 100px
 
 .cities
-    width: 400px
+    width: 360px
     height: 150px
 
     display: flex
@@ -94,27 +94,6 @@
 
     @include mixins.mobile
         padding: 1.1rem
-
-.default
-    background: variables.$bg-color
-    color: variables.$text-color-white
-    border-color: variables.$text-color-white
-
-.snowy
-    background: variables.$snowy-color
-    color: variables.$text-color-black
-    border-color: variables.$text-color-black
-
-.sunny
-    background: variables.$sunny-color
-    color: variables.$text-color-white
-    border-color: variables.$text-color-white
-
-.rainy
-    background: variables.$rainy-color
-    color: variables.$text-color-white
-    border-color: variables.$text-color-white
-
 .nav
     height: 10%
 
@@ -207,7 +186,7 @@
 
     &-grid
         height: 50px
-        width: 6.4em
+        width: 6.3em
         text-align: center
 
         p
@@ -222,3 +201,23 @@
         margin-top: 1.4em
         height: 1.5em
         opacity: .3
+
+.default
+    background: variables.$bg-color
+    color: variables.$text-color-white
+    border-color: variables.$text-color-white
+
+.snowy
+    background: variables.$snowy-color
+    color: variables.$text-color-black
+    border-color: variables.$text-color-black
+
+.sunny
+    background: variables.$sunny-color
+    color: variables.$text-color-white
+    border-color: variables.$text-color-white
+
+.rainy
+    background: variables.$rainy-color
+    color: variables.$text-color-white
+    border-color: variables.$text-color-white
