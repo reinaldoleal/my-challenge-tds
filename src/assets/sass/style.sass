@@ -71,7 +71,6 @@
 
     display: flex
     justify-content: space-around
-    align-items: center
     flex-wrap: wrap
 
     @include mixins.mobile
@@ -79,19 +78,18 @@
         height: 100px
 
     &-item
-        padding: 1.5em
         cursor: pointer
+        margin: auto
+        width: 130px
+
+        text-align: center
+        background-color: variables.$bg-color
+        color: variables.$text-color-white
+        font-size: 1.4em
 
         @include mixins.mobile
             padding: 2em
-
-        span
-            background-color: variables.$bg-color
-            color: variables.$text-color-white
-            font-size: 1.4em
-
-            @include mixins.mobile
-                font-size: 1em
+            font-size: 1em
 
 .container-weather
     color: variables.$bg-color

@@ -21,13 +21,13 @@ function Home({ ...props }: PropsHome) {
         </div>
         <div className="cities">
           {cities.map((item) => (
-            <div key={item.id} className="cities-item">
-              <span
-                onClick={() => props.selectCity(item.cords)}
-                onKeyUp={() => props.selectCity(item.cords)}
-              >
-                {item.name}
-              </span>
+            <div
+              key={item.id}
+              className="cities-item"
+              onClick={() => props.selectCity(item.cords)}
+              onKeyUp={() => props.selectCity(item.cords)}
+            >
+              {item.name}
             </div>
           ))}
         </div>
