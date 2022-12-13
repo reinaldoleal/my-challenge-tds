@@ -6,7 +6,7 @@ type PropsHome = {
   selectCity: any;
 };
 
-function Home({ ...props }: PropsHome) {
+function Home({ selectCity = () => {} }: PropsHome) {
   return (
     <div className="container">
       <div className="center">
@@ -24,8 +24,8 @@ function Home({ ...props }: PropsHome) {
             <div
               key={item.id}
               className="cities-item"
-              onClick={() => props.selectCity(item.cords)}
-              onKeyUp={() => props.selectCity(item.cords)}
+              onClick={() => selectCity(item.cords)}
+              onKeyUp={() => selectCity(item.cords)}
             >
               {item.name}
             </div>

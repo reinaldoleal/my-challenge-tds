@@ -20,7 +20,7 @@ type PropsCity = {
   clearCity: any;
 };
 
-function City({ ...props }: PropsCity) {
+function City({ cords, clearCity = () => {} }: PropsCity) {
   const [weather, setWeather] = useState<OpenWeartherMap>({
     id: 0,
     name: '',
@@ -51,7 +51,7 @@ function City({ ...props }: PropsCity) {
   };
 
   useEffect(() => {
-    openWeartherMapApi.getWeather(props.cords).then((resp) => {
+    openWeartherMapApi.getWeather(cords).then((resp) => {
       setWeather(resp.data);
       backgroundColor(resp.data.weather[0].icon);
     });
@@ -59,7 +59,7 @@ function City({ ...props }: PropsCity) {
 
   return (
     <div className={`container-weather ${styleContainer}`}>
-      <div className="nav" onClick={props.clearCity} onKeyUp={props.clearCity}>
+      <div className="nav" onClick={clearCity} onKeyUp={clearCity}>
         <FontAwesomeIcon icon={faArrowLeft} className="nav-icon" />
       </div>
       <div className="container-weather-center">

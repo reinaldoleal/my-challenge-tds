@@ -9,5 +9,6 @@ describe('App', () => {
     render(<App />);
 
     expect(screen.getByText('WEATHER')).toBeDefined();
+    expect(screen.getByText('select a city')).toBeDefined();
   });
 });
