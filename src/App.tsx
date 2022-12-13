@@ -17,7 +17,7 @@ function App() {
   };
 
   return (
-    <div>
+    <div className="container">
       {city.lat === 0 ? (
         <Home selectCity={selectCity} />
       ) : (
