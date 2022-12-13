@@ -10,19 +10,15 @@ function Temp({ weather }: TempProps) {
   return (
     <>
       <div className="temp">
-        <div className="temp-now">
-          <span>{Math.trunc(weather.main?.temp || 0)}</span>
-        </div>
+        <div className="temp-now">{Math.trunc(weather.main?.temp || 0)}</div>
         <div className="temp-now-others">
-          <div className="temp-now-others-ground">
-            <p>&deg;C</p>
-          </div>
+          <div className="temp-now-others-ground">&deg;C</div>
           <div className="temp-now-others-max">
             <div className="temp-now-others-icon">
               <FontAwesomeIcon icon={faArrowUp} />
             </div>
             <div className="temp-now-others-font">
-              <p>{Math.trunc(weather.main?.temp_max || 0)}&deg;</p>
+              {Math.trunc(weather.main?.temp_max || 0)}&deg;
             </div>
           </div>
           <div className="temp-now-others-min">
@@ -30,7 +26,7 @@ function Temp({ weather }: TempProps) {
               <FontAwesomeIcon icon={faArrowDown} />
             </div>
             <div className="temp-now-others-font">
-              <p>{Math.trunc(weather.main?.temp_min || 0)}&deg;</p>
+              {Math.trunc(weather.main?.temp_min || 0)}&deg;
             </div>
           </div>
         </div>

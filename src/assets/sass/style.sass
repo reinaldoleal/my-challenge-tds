@@ -138,8 +138,8 @@
     display: flex
     justify-content: center
     align-items: center
-    margin-top: 25px
-    height: 80px
+    margin-top: 2em
+    height: 5.4em
 
     &-now
         font-size: 7em
@@ -148,16 +148,15 @@
             width: 58px
 
             &-icon
-                font-size: .9em
+                margin-top: 2px
+                font-size: .8em
                 padding-left: .7em
 
             &-font
                 font-size: 1em
 
             &-ground
-                display: flex
-                justify-content: right
-                align-items: right
+                text-align: right
                 font-weight: bold
                 font-size: 1.7em
 
@@ -166,6 +165,9 @@
                 justify-content: space-between
                 margin-top: .7em
                 padding-bottom: 5px
+
+                @include mixins.mobile
+                    margin-top: .4em
 
             &-min
                 display: flex
