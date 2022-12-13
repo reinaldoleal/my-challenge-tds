@@ -94,14 +94,14 @@
 .container-weather
     color: variables.$bg-color
 
-    @include mixins.container
+    @include mixins.container-weather
 
     &-center
         display: flex
         justify-content: center
 
         width: 450px
-        height: 500px
+        height: calc(100vh - 2.4em)
 
         margin: auto
 
@@ -109,12 +109,11 @@
             width: 410px
 
 .nav
-    height: 80px
+    height: 3.5em
     cursor: pointer
 
     &-icon
-        margin-left: 25px
-        margin-top: 25px
+        padding: .4em
         font-size: 30px
 
         @include mixins.mobile
