@@ -96,6 +96,9 @@
 
     @include mixins.container-weather
 
+    @include mixins.mobile
+        height: calc(100vh - 3.5em)
+
     &-center
         display: flex
         justify-content: center
@@ -106,7 +109,6 @@
 
         @include mixins.mobile
             width: 410px
-            height: 10em
 
 .nav
     width: 100vw
