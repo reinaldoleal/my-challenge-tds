@@ -16,12 +16,12 @@ function Others({ weather, styleContainer }: OthersProps) {
       <hr className={styleContainer} />
       <div className="others-grid">
         <p>sunrise</p>
-        <span>{format(weather.sys?.sunrise || 0, 'HH:MM')} AM</span>
+        <span>{format(weather.sys?.sunrise || 0, 'hh:mm')} AM</span>
       </div>
       <hr className={styleContainer} />
       <div className="others-grid">
         <p>sunset</p>
-        <span>{format(weather.sys?.sunset || 0, 'HH:MM')} PM</span>
+        <span>{format(weather.sys?.sunset || 0, 'hh:mm')} PM</span>
       </div>
       <hr className={styleContainer} />
       <div className="others-grid">
