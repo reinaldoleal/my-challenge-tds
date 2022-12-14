@@ -13,7 +13,7 @@ function Forecast({ weather }: ForecastProps) {
         </div>
         <div>
           <img
-            src={`http://openweathermap.org/img/wn/${weather.weather?.[0].icon}.png`}
+            src={`https://openweathermap.org/img/wn/${weather.weather?.[0].icon}.png`}
             alt="Weather"
           />
         </div>
@@ -27,7 +27,7 @@ function Forecast({ weather }: ForecastProps) {
         </div>
         <div>
           <img
-            src={`http://openweathermap.org/img/wn/${weather.weather?.[0].icon}.png`}
+            src={`https://openweathermap.org/img/wn/${weather.weather?.[0].icon}.png`}
             alt="Weather"
           />
         </div>
@@ -41,7 +41,7 @@ function Forecast({ weather }: ForecastProps) {
         </div>
         <div>
           <img
-            src={`http://openweathermap.org/img/wn/${weather.weather?.[0].icon}.png`}
+            src={`https://openweathermap.org/img/wn/${weather.weather?.[0].icon}.png`}
             alt="Weather"
           />
         </div>
@@ -55,7 +55,7 @@ function Forecast({ weather }: ForecastProps) {
         </div>
         <div>
           <img
-            src={`http://openweathermap.org/img/wn/${weather.weather?.[0].icon}.png`}
+            src={`https://openweathermap.org/img/wn/${weather.weather?.[0].icon}.png`}
             alt="Weather"
           />
         </div>

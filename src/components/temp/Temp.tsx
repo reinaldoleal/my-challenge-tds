@@ -33,7 +33,7 @@ function Temp({ weather }: TempProps) {
       </div>
       <div className="temp-img">
         <img
-          src={`http://openweathermap.org/img/wn/${weather.weather?.[0].icon}@2x.png`}
+          src={`https://openweathermap.org/img/wn/${weather.weather?.[0].icon}@2x.png`}
           alt="Weather"
         />
       </div>
